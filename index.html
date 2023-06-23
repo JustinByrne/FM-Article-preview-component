@@ -1,87 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Mentor | Article preview component</title>
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./src/images/favicon-32x32.png"
-    />
-    <link href="./tailwind.css" rel="stylesheet" />
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Frontend Mentor | Article preview component</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png"/>
+        <link href="./tailwind.css" rel="stylesheet" />
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </head>
 
-  <body>
-    <div class="bg-blue-light-grayish grid h-screen place-content-center p-6">
-      <div
-        class="grid overflow-hidden rounded-md bg-white shadow-lg md:grid-cols-3"
-      >
-        <div>
-          <img src="./src/images/drawers.jpg" alt="" />
-        </div>
-        <div class="grid md:col-span-2">
-          <div class="px-8 py-2 pt-8">
-            <h1 class="text-blue-very-dark-gray max-w-md font-bold">
-              Shift the overall look and feel by adding these wonderful touches
-              to furniture in your home
-            </h1>
-          </div>
-          <div class="px-8 pt-2 pb-4">
-            <p class="text-blue-desaturated-dark max-w-md text-sm font-medium">
-              Ever been in a room and felt like something was missing? Perhaps
-              it felt slightly bare and uninviting. I've got some simple tips to
-              help you make any room feel complete.
-            </p>
-          </div>
-          <div
-            class="flex items-center px-8 py-6"
-            x-data="{share: false}"
-            x-bind:class="share ? 'bg-blue-very-dark-gray' : ''"
-          >
-            <div class="flex" x-bind:class="share ? 'hidden' : ''">
-              <img
-                src="./src/images/avatar-michelle.jpg"
-                class="h-10 rounded-full"
-              />
-              <p class="col-span-2 ml-4 text-sm">
-                <span class="text-blue-very-dark-gray font-bold"
-                  >Michelle Appleton</span
-                >
-                <br />
-                <span class="text-blue-desaturated-dark font-medium"
-                  >28 Jun 2020</span
-                >
-              </p>
+    <body>
+        <div class="grid h-screen p-6 bg-blue-light-grayish place-content-center">
+            <div class="grid max-w-2xl overflow-hidden bg-white rounded-md shadow-lg md:grid-cols-3">
+                <div>
+                    <img src="./src/images/drawers.jpg" class="object-cover h-full" alt="" />
+                </div>
+
+                <div class="grid-cols-1 md:col-span-2">
+                    <div class="px-8 pt-8 pb-2">
+                        <h1 class="max-w-md text-2xl font-bold text-blue-very-dark-gray">
+                            Shift the overall look and feel by adding these wonderful touches
+                            to furniture in your home
+                        </h1>
+                    </div>
+
+                    <div class="px-8 pt-2 pb-4">
+                        <p class="max-w-md text-sm font-medium text-blue-desaturated-dark">
+                            Ever been in a room and felt like something was missing? Perhaps
+                            it felt slightly bare and uninviting. I've got some simple tips to
+                            help you make any room feel complete.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center px-8 py-6" x-data="{share: false}" x-bind:class="share ? 'bg-blue-very-dark-gray' : ''" >
+                        <div class="flex" x-bind:class="share ? 'hidden' : ''">
+                            <img src="./src/images/avatar-michelle.jpg" class="h-10 rounded-full" />
+
+                            <p class="flex flex-col col-span-2 ml-4 text-sm">
+                                <span class="font-bold text-blue-very-dark-gray"> Michelle Appleton </span>
+                                
+                                <time class="font-medium text-blue-desaturated-dark" datetime="2020-06-28"> 28 Jun 2020 </time>
+                            </p>
+                        </div>
+
+                        <button class="grid w-8 h-8 ml-auto rounded-full place-content-center" x-on:click="share = !share" x-bind:class="share ? 'bg-blue-desaturated-dark' : 'bg-blue-light-grayish'" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+                                <path fill="#6E8098" x-bind:class="share ? 'fill-blue-light-grayish' : ''" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div
-              class="text-blue-grayish flex h-10 items-center"
-              x-bind:class="share ? '' : 'hidden'"
-            >
-              <span>SHARE</span>
-            </div>
-            <button
-              class="ml-auto grid h-8 w-8 place-content-center rounded-full"
-              x-on:click="share = !share"
-              x-bind:class="share ? 'bg-blue-desaturated-dark' : 'bg-blue-light-grayish'"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
-                <path
-                  fill="#6E8098"
-                  x-bind:class="share ? 'fill-blue-light-grayish' : ''"
-                  d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
